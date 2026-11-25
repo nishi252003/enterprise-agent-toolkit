@@ -5,6 +5,7 @@ on:
   pull_request:
     branches:
       - main
+      - intel-main-updates
       - 'release-*'
       - 'release/**'
     types: [opened, synchronize, reopened, ready_for_review]
