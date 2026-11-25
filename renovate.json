@@ -26,6 +26,16 @@
         "kuberay-operator"
       ],
       "groupName": "kuberay operator version"
+    },
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "langfuse/langfuse",
+        "langfuse/langfuse-worker"
+      ],
+      "groupName": "langfuse images"
     }
   ],
   "customManagers": [
