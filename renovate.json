@@ -1,0 +1,35 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "forkProcessing": "enabled",
+  "extends": [
+    "config:recommended"
+  ],
+  "baseBranchPatterns": [
+    "agentic-toolkit-migration"
+  ],
+  "automerge": false,
+  "ignoreUnstable": true,
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "kubernetes-sigs/agent-sandbox"
+      ],
+      "groupName": "agent sandbox version"
+    }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)config\\.yaml$/",
+        "/(^|/)roles/agent_sandbox/defaults/main\\.yaml$/"
+      ],
+      "matchStrings": [
+        "(?:^|\\n)agent_sandbox_version:[ \\t]*[\"']?(?<currentValue>v[0-9]+\\.[0-9]+\\.[0-9]+)[\"']?"
+      ],
+      "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "kubernetes-sigs/agent-sandbox",
+      "versioningTemplate": "semver-coerced"
+    }
+  ]
+}
