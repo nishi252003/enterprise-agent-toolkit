@@ -17,6 +17,15 @@
         "kubernetes-sigs/agent-sandbox"
       ],
       "groupName": "agent sandbox version"
+    },
+    {
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchPackageNames": [
+        "kuberay-operator"
+      ],
+      "groupName": "kuberay operator version"
     }
   ],
   "customManagers": [
@@ -32,6 +41,20 @@
       "datasourceTemplate": "github-releases",
       "packageNameTemplate": "kubernetes-sigs/agent-sandbox",
       "versioningTemplate": "semver-coerced"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)config\\.yaml$/",
+        "/(^|/)roles/kuberay/defaults/main\\.yaml$/"
+      ],
+      "matchStrings": [
+        "(?:^|\\n)kuberay_operator_version:[ \\t]*[\"']?(?<currentValue>[0-9]+\\.[0-9]+\\.[0-9]+)[\"']?"
+      ],
+      "datasourceTemplate": "helm",
+      "packageNameTemplate": "kuberay-operator",
+      "registryUrlTemplate": "https://ray-project.github.io/kuberay-helm/",
+      "versioningTemplate": "semver"
     }
   ]
 }
