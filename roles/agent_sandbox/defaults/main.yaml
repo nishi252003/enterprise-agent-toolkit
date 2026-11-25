@@ -19,7 +19,7 @@
 # =============================================================================
 
 agent_sandbox_namespace: "agent-sandbox-system"
-agent_sandbox_version: "v0.5.0"
+agent_sandbox_version: "v0.5.6"
 agent_sandbox_release_name: "agent-sandbox"
 
 # Published images — no local builds needed. The controller image is baked
