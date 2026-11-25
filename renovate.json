@@ -2,13 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "forkProcessing": "enabled",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    "schedule:weekly"
   ],
   "baseBranchPatterns": [
-    "agentic-toolkit-migration"
+    "intel-main-updates"
   ],
   "automerge": false,
   "ignoreUnstable": true,
+  "timezone": "UTC",
   "packageRules": [
     {
       "matchPackageNames": [
