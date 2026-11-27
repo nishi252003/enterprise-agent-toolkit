@@ -10,4 +10,8 @@ keywords:
   - vector-search
 # redis-stack-server is vendored locally in charts/redis-stack-server/
 # (patched to support affinity + tolerations for node scheduling).
-# Do NOT add it back as a Helm dependency — helm dep update would overwrite the patch.
+# Keep this dependency local so Helm never replaces the patched chart from an upstream repository.
+dependencies:
+  - name: redis-stack-server
+    version: 0.4.21
+    repository: file://charts/redis-stack-server
